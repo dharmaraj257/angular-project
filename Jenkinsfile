@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('clone repo') { 
             steps {
-                sh "git https://github.com/dharmaraj257/angular-project.git"
+                sh "git: https://github.com/dharmaraj257/angular-project.git"
                 sh "ng clean -f angular-project"
             }
         }
