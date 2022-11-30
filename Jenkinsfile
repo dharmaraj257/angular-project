@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('clone repo') { 
             steps {
-                sh '''#!/bin/bash
-                bat "git https://github.com/dharmaraj257/angular-project.git"
-                bat "ng clean -f angular-project"
+                sh "git https://github.com/dharmaraj257/angular-project.git"
+                sh "ng clean -f angular-project"
             }
         }
         stage('build') { 
             steps {
-                bat "ng build -f angular-project"
+                sh "ng build -f angular-project"
             }
         }
         stage('Serve') { 
             steps {
-                bat "ng serve -f angular-project"
+                sh "cd angular-project -f angular-project"
+                sh "ng serve -f angular-project"
             }
         }
     }
