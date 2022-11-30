@@ -1,17 +1,21 @@
 pipeline {
-    agent any
-
+    agent any 
     stages {
-        stage('Build') {
+        stage('clone repo') { 
             steps {
-                git  'https://github.com/dharmaraj257/angular-project.git'
-                echo "ng build angular-project"
+                bat "git clone https://github.com/dharmaraj257/angular-project.git"
+                bat "ng clean -f angular-project"
             }
-        stage('Post') {
+        }
+        stage('build') { 
             steps {
-                echo "ng serve"
+                bat "ng build -f angular-project"
             }
-        } 
+        }
+        stage('Serve') { 
+            steps {
+                bat "ng serve -f angular-project"
+            }
+        }
     }
-  }
 }
