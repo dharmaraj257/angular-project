@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "npm install"
-echo "ng --prod --atos"
+echo "ng build angular project"
